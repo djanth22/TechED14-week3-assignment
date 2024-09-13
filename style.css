@@ -7,6 +7,11 @@ h1 {
   border: 3px, black, solid;
 }
 
+h2 {
+  text-align: center;
+  background-color: antiquewhite;
+}
+
 #cookieImage {
   width: 300px;
   cursor: pointer;
@@ -18,7 +23,8 @@ h1 {
   background-color: blue;
 }
 
-#cookie-count {
+#cookie-count,
+#cookies-per-second {
   text-align: center;
   background-color: bisque;
 }
@@ -27,4 +33,22 @@ h1 {
   display: flex;
   justify-content: center;
   background-color: blueviolet;
+}
+
+#shop-upgrades {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  background-color: blue;
+  padding: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+.upgrade-name,
+.upgrade-cost,
+.upgrade-increase {
+  background-color: antiquewhite;
+  margin: 3px;
+  text-align: center;
+  align-content: center;
 }
