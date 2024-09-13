@@ -6,3 +6,25 @@ h1 {
   background-color: antiquewhite;
   border: 3px, black, solid;
 }
+
+#cookieImage {
+  width: 300px;
+  cursor: pointer;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  background-color: blue;
+}
+
+#cookie-count {
+  text-align: center;
+  background-color: bisque;
+}
+
+.reset {
+  display: flex;
+  justify-content: center;
+  background-color: blueviolet;
+}
