@@ -34,6 +34,8 @@ function resetProgress() {
 }
 reset.addEventListener("click", resetProgress);
 
+resetProgress();
+
 // function to fetch API data
 async function upgrades() {
   const response = await fetch(
@@ -119,7 +121,6 @@ function load() {
 }
 
 window.onload = load();
-window.onload = reset();
 
 function reveal() {
   const message = document.getElementById(`message`);
