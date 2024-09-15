@@ -120,7 +120,7 @@ function load() {
   cookiesPerSecond = JSON.parse(localStorage.getItem("cookies per second"));
 }
 
-setTimeout(load, 100);
+setTimeout(load, 1000);
 
 function reveal() {
   const message = document.getElementById(`message`);
