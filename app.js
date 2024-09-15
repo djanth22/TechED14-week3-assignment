@@ -115,7 +115,8 @@ setInterval(save, 1000);
 
 function load() {
   cookieCount = JSON.parse(localStorage.getItem("cookies"));
-  cookiesPerSecond = JSON.parse(localStorage.getItem("cookies per second"));
+  cookiesPerSecond =
+    JSON.parse(localStorage.getItem("cookies per second")) || 1;
 }
 
 window.onload = load();
