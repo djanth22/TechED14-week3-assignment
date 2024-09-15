@@ -2,16 +2,19 @@ console.log("log test");
 console.log("hello there");
 
 // cookie values
-
-let cookiesPerSecond = 0;
-let cookieCount = 1 + cookiesPerSecond;
+// let initialValue = 0
+let buttonclass = 0;
+let increaseValue = 0;
+let cookiesPerSecond = 1;
+let cookieCount = 0 + cookiesPerSecond;
 
 const cookie = document.getElementById(`cookieImage`);
 const countContainer = document.getElementById(`cookie-count`);
+let perSecondContainer = document.getElementById(`cookies-per-second`);
 
 // function to update cookie count
 function updateCookieCount() {
-  let count = cookieCount++;
+  let count = 1 + cookieCount++;
   countContainer.innerHTML = ``;
   countContainer.append(count);
 }
@@ -24,7 +27,10 @@ function resetProgress() {
   let reset = 0;
   countContainer.innerHTML = ``;
   countContainer.append(reset);
-  cookieCount = 1;
+  cookieCount = 0;
+  perSecondContainer.innerHTML = ``;
+  perSecondContainer.append(reset);
+  cookiesPerSecond = 1;
 }
 reset.addEventListener("click", resetProgress);
 
@@ -41,7 +47,6 @@ async function upgrades() {
 let shopUpgrades = [];
 
 upgrades();
-console.log(shopUpgrades);
 
 const upgradeContainer = document.getElementById(`shop-upgrades`);
 
@@ -60,22 +65,68 @@ function renderUpgrades() {
     increase.classList.add(`upgrade-increase`);
     button.textContent = "buy";
     button.classList.add(`buy-button`);
+    button.setAttribute(`id`, buttonclass++);
 
     upgradeContainer.appendChild(shopNames);
     upgradeContainer.appendChild(shopCost);
     upgradeContainer.appendChild(increase);
     upgradeContainer.appendChild(button);
+
+    function buyButtons() {
+      let cost = a.cost;
+      let increaseValue = a.increase;
+      if (cookieCount >= cost) {
+        countContainer.innerHTML = "";
+        countContainer.append(cookieCount - cost);
+        perSecondContainer.innerHTML = "";
+        perSecondContainer.append(cookiesPerSecond + increaseValue);
+        cookiesPerSecond = cookiesPerSecond + increaseValue;
+        cookieCount = cookieCount - cost;
+      } else {
+        reveal();
+      }
+    }
+    button.addEventListener("click", buyButtons);
   });
 }
 
-renderUpgrades();
-
-// event listener for buttons
-
 // updating cookies per second
+function autoCookies() {
+  let CPS = (cookieCount += cookiesPerSecond);
+  countContainer.innerHTML = "";
+  countContainer.append(CPS - cookiesPerSecond);
+  perSecondContainer.innerHTML = "";
+  perSecondContainer.append(cookiesPerSecond);
+}
 
-// set interval for cookies per second
+// save function
 
-if (cookiesPerSecond > 0) {
-  setInterval(updateCookieCount, 1000);
+function save() {
+  localStorage.setItem("cookies", cookieCount - cookiesPerSecond);
+  localStorage.setItem("cookies per second", cookiesPerSecond);
+}
+
+// set interval
+
+setInterval(autoCookies, 1000);
+setInterval(save, 1000);
+
+// load function
+
+function load() {
+  cookieCount = JSON.parse(localStorage.getItem("cookies"));
+  cookiesPerSecond = JSON.parse(localStorage.getItem("cookies per second"));
+}
+
+window.onload = load();
+
+function reveal() {
+  const message = document.getElementById(`message`);
+  message.style.visibility = "visible";
+  setTimeout(hide, 5000);
+}
+
+function hide() {
+  const message = document.getElementById(`message`);
+  message.style.visibility = "hidden";
 }

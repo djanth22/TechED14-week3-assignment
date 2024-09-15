@@ -1,15 +1,23 @@
 body {
-  background-color: aqua;
+  background-color: hwb(321 8% 79%);
 }
 
 h1 {
-  background-color: antiquewhite;
-  border: 3px, black, solid;
+  background-color: #3b001c;
+  border: 3px, #df8ef1, solid;
+  text-align: center;
+  color: #cda3dd;
+  border-radius: 30px;
 }
 
 h2 {
   text-align: center;
-  background-color: antiquewhite;
+  background-color: #694d66;
+  border-radius: 40px;
+  padding: 5px;
+  border: 3px, #9b548f, solid;
+  color: #dda4d4;
+  margin: 5px;
 }
 
 #cookieImage {
@@ -20,7 +28,7 @@ h2 {
 .image-container {
   display: flex;
   justify-content: center;
-  background-color: blue;
+  background-color: rgb(51, 0, 75);
 }
 
 #cookie-count,
@@ -32,13 +40,13 @@ h2 {
 .reset {
   display: flex;
   justify-content: center;
-  background-color: blueviolet;
+  background-color: rgb(97, 77, 116);
 }
 
 #shop-upgrades {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
-  background-color: blue;
+  background-color: rgb(57, 28, 102);
   padding: 10px;
   text-align: center;
   align-items: center;
@@ -47,8 +55,57 @@ h2 {
 .upgrade-name,
 .upgrade-cost,
 .upgrade-increase {
-  background-color: antiquewhite;
+  background-color: rgb(185, 119, 141);
   margin: 3px;
   text-align: center;
   align-content: center;
+  color: #320246;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.buy-button,
+#reset {
+  background-color: #3c7b80;
+  color: rgb(122, 255, 166);
+  font-weight: 900;
+  border-radius: 30px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.buy-button:hover,
+#reset:hover {
+  background-color: #264c4e;
+  color: #9dffbd;
+  font-weight: 900;
+  border-radius: 30px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#cookie-count,
+#cookies-per-second {
+  border-radius: 30px;
+  padding: 5px;
+  margin: 10px;
+  background-color: #4d0140;
+  color: #e6a5f3;
+  font-weight: 900;
+  font-size: larger;
+}
+
+#message {
+  visibility: hidden;
+  text-align: center;
+  background-color: #477e5a50;
+  color: red;
+  border-radius: 40px;
+  padding: 8px;
+  margin: 0px;
+  border: 3px, red, solid;
+}
+
+#shop {
+  cursor: pointer;
 }
