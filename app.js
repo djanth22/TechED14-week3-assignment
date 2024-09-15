@@ -12,6 +12,8 @@ const cookie = document.getElementById(`cookieImage`);
 const countContainer = document.getElementById(`cookie-count`);
 let perSecondContainer = document.getElementById(`cookies-per-second`);
 
+perSecondContainer.innerHTML = "1";
+
 // function to update cookie count
 function updateCookieCount() {
   let count = 1 + cookieCount++;
