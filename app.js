@@ -12,6 +12,8 @@ const cookie = document.getElementById(`cookieImage`);
 const countContainer = document.getElementById(`cookie-count`);
 let perSecondContainer = document.getElementById(`cookies-per-second`);
 
+resetProgress();
+
 // function to update cookie count
 function updateCookieCount() {
   let count = 1 + cookieCount++;
@@ -33,8 +35,6 @@ function resetProgress() {
   cookiesPerSecond = 1;
 }
 reset.addEventListener("click", resetProgress);
-
-resetProgress();
 
 // function to fetch API data
 async function upgrades() {
